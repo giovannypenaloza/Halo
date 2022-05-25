@@ -25,11 +25,12 @@ class storeProductoRequest extends FormRequest
     {
      //1.eestablecer reglas de validacion 
         return  [
-            "nombre" => 'required|alpha',
+            "nombre" => 'required|alpha|unique:productos,nombre',
             "desc"=> 'required|max:100',
             "precio"=> 'required|numeric|max:10000',
             "categoria" => 'required',
-            "marca" =>  "required"
+            "marca" =>  "required",
+            'imagen' => 'required|image'
         
         ];
     }
@@ -41,8 +42,9 @@ class storeProductoRequest extends FormRequest
             'required' =>'dato obligatorio',
             'alpha'=> 'solo letras',
             'max' => 'maximo:max caracteres',
-            'numeric'=> 'solo numeros'
-              
+            'numeric'=> 'solo numeros',
+            'image'=> 'Solo archivos con formato jpeg, Jgp, Png, Gif o Pdf',
+            'unique' => 'El nombre  ya existe',
         ];
     }
 }
