@@ -12,8 +12,8 @@
         <div class="nav-wrapper">
         <a href="#!" class="brand-logo center">Halo</a>
         <ul class="left hide-on-med-and-down">
-            <li><a href="badges.html">Productos</a></li>
-            <li class="active"><a href="collapsible.html">Pedidos</a></li>
+            <li><a href="{{ url('productos/create') }}">Productos</a></li>
+            <li class="active"><a href="{{ url('productos/#') }}">Catalogo</a></li>
         </ul>
         </div>
     </nav>
@@ -26,8 +26,20 @@
 <script>
     document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('select');
+    let tabs = document.querySelector(".tabs")
+    var instance = M.Tabs.init(tabs);
+    
     var instances = M.FormSelect.init(elems, []);
     });
 </script>
 </body>
+<footer>
+
+<div class="text-center " style="background-color: black;">
+    
+    <a class="text-dark" href="https://mdbootstrap.com/"> © 2020 Copyright:    NnGy</a>
+  </div>
+  <!-- Copyright -->
+</footer>
+
 </html>

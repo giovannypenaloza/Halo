@@ -19,9 +19,9 @@ class ProductoController extends Controller
     public function index()
     {
         //selecciono todos los productos en un arreglo
-        $producto = Producto::all();
+        $productos = Producto::all();
         //mostrar la vista del catalogo llevandole  los productos
-        return view('productos.index')
+        return view('producto.index')
         ->with('productos' , $productos);
 
 
