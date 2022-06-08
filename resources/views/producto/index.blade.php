@@ -1,15 +1,19 @@
 @EXTENDS('layouts.principal')
 
 @section('contenido')
-<div class="conteiner">
 <div class="row">
 <h1 class="pink-text text-darken-3"> Catalogo De Productos </h1>
 </div>
-
+@if(session('mensajito'))
+<div class="row">
+  <p>{{session('mensajito')}} <a href="{{route('cart.index')}}">Ir al Run Run</a></p>
+</div>
+@endif
  
 
- <div class="row">
+ 
  @foreach($productos as $producto)
+ <div class="row">
     <div class="col s12 m4">
       <div class="card">
         <div class="card-image ">
@@ -24,9 +28,9 @@
 
             
             </ul>
-          </div>
+          </div>        
           <div class="card-action">
-          <a href="#">VER DETALLES</a>
+          <a href="{{ route('productos.show' , $producto->id )}}">Ver detalles</a>
         </div>
       </div>
     </div>
