@@ -47,16 +47,16 @@
 <div class="row">
     <h3>Añadir al Carrito</h3>
 </div>
-<input type="hidden" name="pro_id" value="{{$producto->id}}">
-
+<input type="hidden" name="prod_id" value="{{$producto->id}}">
+<input type="hidden" name="precio" value="{{ $producto->precio }}">
 <div class="row">
 <div class="col s4 input-field">
-    <select name="Cantidad" id="">
+    <select name="Cantidad" id="Cantidad">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
-    <label for="cantidad">Cantidad</label>
+    <label for="Cantidad">Cantidad</label>
 </div>
 </div>
 
@@ -64,19 +64,9 @@
     <div class="col s4 input-field">
         <button class="btn waves-effect waves-light" type="submit">AÑADIR
         </button>
-
     </div>
-
 </div>
-
-
 </form>
-
-    </div>
-
-
-
 </div>
-
-
+</div>
 @endsection

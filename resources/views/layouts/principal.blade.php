@@ -14,6 +14,7 @@
         <ul class="left hide-on-med-and-down">
             <li><a href="{{ url('productos/create') }}">Productos</a></li>
             <li class="active"><a href="{{ url('productos/#') }}">Catalogo</a></li>
+            <li class="active"><a href="{{ url('/cart') }}">Run Run De Compras</a></li>
         </ul>
         </div>
     </nav>
@@ -37,7 +38,7 @@
 
 <div class="text-center " style="background-color: black;">
     
-    <a class="text-dark" href="https://mdbootstrap.com/"> © 2020 Copyright:    NnGy</a>
+    <a class="text-dark" href=""> © 2020 Copyright:    NnGy</a>
   </div>
   <!-- Copyright -->
 </footer>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Producto;
 
 
 class CartController extends Controller
@@ -13,16 +14,13 @@ class CartController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        if(!session('cart')){
-            echo "no hay items en el carrito";
-        }else{
+    {        
        return view('cart.index');
-    }
+    
     }
     /**
      * Show the form for creating a new resource.
-     *
+     *@param \Illuminate\Http\Request 
      * @return \Illuminate\Http\Response
      */
     public function create()
@@ -42,9 +40,10 @@ class CartController extends Controller
         //estructura de producto
         $producto = [ [
 
-        "pro_id" => $request->pro_id ,
-        "Cantidad"=> $request->Cantidad, 
-        "nombre_pro"=> Producto::find($request->pro_id)->nombre       
+        "prod_id" => $request->prod_id ,
+        "precio" => $request->precio, 
+        "Cantidad"=> $request->Cantidad,               
+        "nombre_prod"=>Producto::find($request->prod_id)->nombre       
          ] ];
 
        
@@ -52,14 +51,14 @@ if(!session('cart')){
 
     $aux[] = $producto;
   //el 1 producto el carrito
-    session(['cart' => $producto]);
+    session(['cart' => $aux]);
 
 }else{
 
 
       //estraer los datos
       $aux =session('cart');
-      //-eliminar variable session
+      //-eliminar variable session nnnn
       session()->forget('cart');
       
       //agreggar nuevo producto a los ya existentes
@@ -119,6 +118,11 @@ return redirect('productos')
      */
     public function destroy($id)
     {
-        session()-forget('cart');
+        session()->forget('cart');
+
+        return redirect('cart');
+
     }
 }
+    
+
